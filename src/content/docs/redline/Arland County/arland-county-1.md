@@ -3,10 +3,11 @@ title: Allegations Surfaced Against Church of Trinity
 description: Your Source of International and National News
 ---
 
-<article>
-  <sub>
+<sub>
     <sup>By: Arthut Knox | Investigative journalist | May 2nd 2025 <sup>
-    **Arland County, North Carolina** — What began as a quiet spiritual commune nestled deep in the pine forests of Arland County has become the center of a growing storm. According to leaked reports and a key whistleblower, the Church of Revival and Trinity is now under intense scrutiny following serious allegations of human trafficking, narcotics distribution, and various other criminal enterprises.
+</sub>
+    
+**Arland County, North Carolina** — What began as a quiet spiritual commune nestled deep in the pine forests of Arland County has become the center of a growing storm. According to leaked reports and a key whistleblower, the Church of Revival and Trinity is now under intense scrutiny following serious allegations of human trafficking, narcotics distribution, and various other criminal enterprises.
 
 The Church, known for its cryptic sermons, militarized compounds, and a mantra that reads *“The Awakened Shall Inherit the Ashes,”* has expanded steadily across remote sections of the county. Outwardly, the group promotes spiritual purification and rebirth through isolation, fire, and trial. But behind the cloistered fences, disturbing reports tell a different story.
 
