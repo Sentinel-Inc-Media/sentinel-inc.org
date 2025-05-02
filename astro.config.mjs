@@ -64,6 +64,10 @@ export default defineConfig({
           label: "Reference",
           autogenerate: { directory: "reference" },
         },
+        {
+          label: "Redline News",
+          autogenerate: { directory: "redline" },
+        }
       ],
     }),
   ],

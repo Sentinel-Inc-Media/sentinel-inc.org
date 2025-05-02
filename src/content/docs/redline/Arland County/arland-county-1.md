@@ -1,5 +1,5 @@
 ---
-title: Redline News & Media
+title: Allegations Surfaced Against Church of Trinity
 description: Your Source of International and National News
 ---
 
