@@ -65,9 +65,13 @@ export default defineConfig({
           autogenerate: { directory: "reference" },
         },
         {
+          label: "WOLF News Channel",
+          autogenerate: { directory: "wolf" },
+        },
+        {
           label: "Redline News",
           autogenerate: { directory: "redline" },
-        }
+        },
       ],
     }),
   ],
