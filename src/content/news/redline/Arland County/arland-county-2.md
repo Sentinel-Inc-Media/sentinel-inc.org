@@ -1,6 +1,7 @@
 ---
 title: Collapsed Mine Linked to Church of Revival and Trinity—5 Missing Found, 1 Fatally Shot
-Description: Your source of news, International, and national
+description: Your source of news, International, and national
+date: 2025-05-03T00:00:00-06:00
 ---
 
 *By Arthur Knox | Investigative Journalist | Redline News*  

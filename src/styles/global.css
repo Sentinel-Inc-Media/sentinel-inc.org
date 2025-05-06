@@ -53,6 +53,8 @@ p {
 	--sl-color-gray-5: #353841;
 	--sl-color-gray-6: #24272f;
 	--sl-color-black: #17181c;
+  --sl-color-wolf: #6d6bff;
+  --sl-color-redline: #ff0000;
 }
 /* Light mode colors. */
 :root[data-theme='light'] {
@@ -68,4 +70,6 @@ p {
 	--sl-color-gray-6: #eceef2;
 	--sl-color-gray-7: #f5f6f8;
 	--sl-color-black: #ffffff;
+  --sl-color-wolf: #430fff;
+  --sl-color-redline: #ff0000;
 }

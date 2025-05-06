@@ -1,6 +1,7 @@
 ---
 title: FBI Raids Cult Compounds in Arland County; Mass Ritual Suicide Discovered  
-decription: CULT SIGHTING IN ARLAND COUNTY ENDS IN MASS DEATHS, LEADER ON THE RUN
+description: CULT SIGHTING IN ARLAND COUNTY ENDS IN MASS DEATHS, LEADER ON THE RUN
+date: 2025-05-03T00:00:00-06:00
 ---
   
 **By Arthur Knox | Redline News | May 3, 2025**

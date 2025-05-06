@@ -1,6 +1,7 @@
 ---
 title: Strange Activity Near Rural Communications Array
 description: Report from WOLF News
+date: 2025-05-01T00:00:00-06:00
 ---
 
 <sub>

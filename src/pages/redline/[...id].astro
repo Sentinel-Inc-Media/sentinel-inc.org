@@ -1,0 +1,284 @@
+---
+import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+
+// Get all redline news entries
+export async function getStaticPaths() {
+  const redlineNewsEntries = await getCollection('redline');
+  
+  return redlineNewsEntries.map(entry => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+// Process the markdown to maintain formatting
+const formattedContent = entry.body ? marked.parse(entry.body) : '';
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{entry.data.title} - RED LINE Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="redline-container">
+    <div class="redline-header">
+      <div class="redline-logo">
+        <h1>RED LINE</h1>
+        <p class="tagline">Intelligence Beyond the Boundary</p>
+      </div>
+      <div class="classified-banner">CLASSIFIED INTEL</div>
+    </div>
+    
+    <div class="red-line-indicator">
+      <span class="line"></span>
+      <span class="text">CROSSING THE RED LINE</span>
+      <span class="line"></span>
+    </div>
+    
+    <article class="intel-article">
+      <h2 class="article-title">{entry.data.title}</h2>
+      
+      <div class="article-meta">
+        <span class="date">{new Date(entry.data.date).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })}</span>
+        <span class="security-level">SECURITY LEVEL: ALPHA</span>
+      </div>
+      
+      <div class="article-content" set:html={formattedContent} />
+    </article>
+    
+    <div class="redline-footer">
+      <p>Information contained herein is strictly classified. RED LINE clearance required.</p>
+      <a href="/" class="back-link">Return to Secure Channel</a>
+    </div>
+  </div>
+</body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+  }
+  
+  .redline-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    background-color: #252525;
+    border-radius: 0;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    overflow: hidden;
+    border: 1px solid #ff0000;
+  }
+  
+  .redline-header {
+    background-color: #800000;
+    color: white;
+    padding: 1.5rem;
+    position: relative;
+    border-bottom: 3px solid #ff0000;
+  }
+  
+  .redline-logo h1 {
+    margin: 0;
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+  }
+  
+  .tagline {
+    margin: 0.25rem 0 0;
+    font-style: italic;
+    opacity: 0.9;
+    letter-spacing: 1px;
+  }
+  
+  .classified-banner {
+    background-color: #ff0000;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    transform: rotate(-3deg);
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+    animation: blink 1.5s infinite;
+  }
+  
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+  }
+  
+  .red-line-indicator {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    background-color: #1a1a1a;
+    color: #ff0000;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  
+  .red-line-indicator .line {
+    flex: 1;
+    height: 2px;
+    background-color: #ff0000;
+  }
+  
+  .red-line-indicator .text {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .intel-article {
+    padding: 2rem;
+    background-color: #2a2a2a;
+    border-left: 5px solid #ff0000;
+    border-right: 5px solid #ff0000;
+  }
+  
+  .article-title {
+    color: #ff3333;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+  
+  .article-meta {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #ff0000;
+    color: #cccccc;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .security-level {
+    color: #ff0000;
+    font-weight: bold;
+  }
+  
+  .article-content {
+    line-height: 1.7;
+    color: #e0e0e0;
+  }
+  
+  .article-content :global(p) {
+    margin-bottom: 1.5rem;
+  }
+  
+  .article-content :global(blockquote) {
+    border-left: 4px solid #ff0000;
+    padding-left: 1rem;
+    margin-left: 0;
+    color: #ff6666;
+    font-style: italic;
+  }
+  
+  .article-content :global(h1),
+  .article-content :global(h2),
+  .article-content :global(h3),
+  .article-content :global(h4),
+  .article-content :global(h5),
+  .article-content :global(h6) {
+    color: #ff3333;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .article-content :global(ul),
+  .article-content :global(ol) {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .article-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  
+  .article-content :global(pre),
+  .article-content :global(code) {
+    background-color: #1a1a1a;
+    border-radius: 3px;
+    padding: 0.2em 0.4em;
+    font-family: monospace;
+    color: #ff6666;
+    border: 1px solid #800000;
+  }
+  
+  .redline-footer {
+    background-color: #800000;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    border-top: 3px solid #ff0000;
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .back-link:hover {
+    background-color: #ff0000;
+    color: white;
+    border-color: #ff0000;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .redline-container {
+      margin: 1rem;
+    }
+    
+    .redline-logo h1 {
+      font-size: 2rem;
+    }
+    
+    .classified-banner {
+      position: relative;
+      top: auto;
+      right: auto;
+      margin-top: 1rem;
+      display: inline-block;
+      transform: none;
+    }
+    
+    .article-title {
+      font-size: 1.5rem;
+    }
+    
+    .red-line-indicator .text {
+      font-size: 0.9rem;
+    }
+  }
+</style>

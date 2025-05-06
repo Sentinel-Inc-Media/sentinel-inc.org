@@ -1,6 +1,7 @@
 ---
 title: Large Detonation in Zagoria
 description: BREAKING NEWS // WOLF NEWS
+date: 2025-05-02T00:00:00-06:00
 ---
 
 <sub>

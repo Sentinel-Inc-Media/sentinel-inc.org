@@ -1,0 +1,87 @@
+---
+// Import necessary Astro utilities to work with collections
+import { getCollection } from 'astro:content';
+
+// Fetch all entries from the 'wolf' collection
+const wolfNews = await getCollection('wolf');
+// Sort by date if needed (assuming each entry has a date field)
+wolfNews.sort((a, b) => {
+  const dateA = new Date(a.data.date).getTime();
+  const dateB = new Date(b.data.date).getTime();
+  return dateB - dateA;
+});
+---
+
+<div class="wolf-news-container">
+  <h2>Wolf News</h2>
+  <div class="wolf-news-scroll">
+    {wolfNews.map((item) => (
+      <div class="wolf-news-item">
+        <h3>{item.data.title}</h3>
+        <p class="date">{new Date(item.data.date).toDateString()}</p>
+        <p>{item.data.description}</p>
+        <a href={`/wolf/${item.id}`}>Read more</a>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .wolf-news-container {
+    margin: 2rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: var(--sl-color-gray-6);
+  }
+
+  h2 {
+    margin-top: 0;
+    color: var(--sl-color-wolf);
+    font-size: 1.5rem;
+  }
+
+  .wolf-news-scroll {
+    height: 300px; /* Fixed height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    background-color: var(--sl-color-gray-5); 
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--sl-color-gray-4);
+  }
+
+  .wolf-news-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--sl-color-gray-4);
+  }
+
+  .wolf-news-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    color: var(--sl-color-wolf);
+  }
+
+  .date {
+    font-size: 0.8rem;
+    color: var(--sl-color-gray-3);
+    margin: 0 0 0.5rem 0;
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--sl-color-wolf);
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>

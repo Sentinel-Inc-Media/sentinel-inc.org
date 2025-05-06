@@ -1,0 +1,69 @@
+---
+// PageLinks.astro - A component that renders a compact list of links from a collection
+// Usage: <PageLinks collection={collection} title="Optional Title" />
+
+interface Props {
+  collection: any[]; // Collection of pages (guides, reference docs, etc.)
+  title?: string;    // Optional title for the links section
+}
+
+const { collection, title } = Astro.props;
+---
+
+<div class="page-links">
+  {title && <h2>{title}</h2>}
+  <ul>
+    {collection.map((item) => (
+      <li>
+        <a href={item.id}>
+          <span class="title">{item.data.title}</span>
+          {item.data.description && 
+            <span class="description">{item.data.description}</span>
+          }
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .page-links {
+    margin: 1.5rem 0;
+  }
+  
+  .page-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .page-links li {
+    margin-bottom: 0.25rem;
+  }
+  
+  .page-links a {
+    display: block;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s, color 0.2s;
+    border-left: 3px solid var(--sl-color-accent-high);
+  }
+  
+  .page-links a:hover {
+    background-color: var(--sl-color-gray-6);
+  }
+  
+  .page-links .title {
+    display: block;
+    font-weight: 600;
+    color: var(--sl-color-accent-high);
+  }
+  
+  .page-links .description {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--sl-color-text);
+    margin-top: 0.1rem;
+  }
+</style>

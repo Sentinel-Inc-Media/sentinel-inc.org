@@ -1,6 +1,7 @@
 ---
 title: Allegations Surfaced Against Church of Trinity
 description: Your Source of International and National News
+date: 2025-05-02T00:00:00-06:00
 ---
 
 <sub>

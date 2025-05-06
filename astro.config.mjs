@@ -15,15 +15,15 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Sentinel Inc.",
-      favicon: "./src/assets/favicon.png",
+      favicon: "./public/favicon.png",
       customCss: [
         "./src/styles/global.css",
         '@fontsource/share-tech/400.css',
         '@fontsource/share-tech-mono/400.css',
       ],
       logo: {
-        dark: "./src/assets/sentinel-logo-text.png",
-        light: "./src/assets/sentinel-logo-text-invert.png",
+        dark: "./public/sentinel-logo-text.png",
+        light: "./public/sentinel-logo-text-invert.png",
         replacesTitle: true,
       },
       social: [
@@ -45,7 +45,7 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/withastro/starlight",
+          href: "https://github.com/Sentinel-Inc-Media/",
         },
       ],
       sidebar: [
@@ -64,14 +64,14 @@ export default defineConfig({
           label: "Reference",
           autogenerate: { directory: "reference" },
         },
-        {
-          label: "WOLF News Channel",
-          autogenerate: { directory: "wolf" },
-        },
-        {
-          label: "Redline News",
-          autogenerate: { directory: "redline" },
-        },
+        // {
+        //   label: "WOLF News Channel",
+        //   autogenerate: { directory: "wolf" },
+        // },
+        // {
+        //   label: "Redline News",
+        //   autogenerate: { directory: "redline" },
+        // },
       ],
     }),
   ],

@@ -5,9 +5,9 @@ template: splash
 hero:
   tagline: A premier mil-sim experience on Arma Reforger.
   image:
-    file: /src/assets/sentinel-logo-square.png
+    file: /public/sentinel-logo-square.png
   actions:
-    - text: Learn More About Us
+    - text: Explore Our Guides & Resources
       link: /guides/joining-sentinel/
       icon: right-arrow
     - text: Join the Discord
@@ -17,6 +17,10 @@ hero:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import { getCollection } from 'astro:content';
+import PageLinks from '@/components/page-links.astro';
+import WolfNewsPreview from '@/components/wolf-news-preview.astro';
+import RedlineNewsPreview from '@/components/redline-news-preview.astro';
 
 ## Steps to Joining Sentinel
 
@@ -31,3 +35,16 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 		Once you've passed Basic Training, you'll be able to participate in our curated events.
 	</Card>
 </CardGrid>
+
+<PageLinks 
+  title="Guides" 
+  collection={await getCollection('docs', ({ id }) => id.startsWith('guides/'))} 
+/>
+
+<PageLinks 
+  title="Reference Documentation" 
+  collection={await getCollection('docs', ({ id }) => id.startsWith('reference/'))} 
+/>
+
+<WolfNewsPreview />
+<RedlineNewsPreview />
