@@ -36,6 +36,9 @@ import RedlineNewsPreview from '@/components/redline-news-preview.astro';
 	</Card>
 </CardGrid>
 
+<WolfNewsPreview />
+<RedlineNewsPreview />
+
 <PageLinks 
   title="Guides" 
   collection={await getCollection('docs', ({ id }) => id.startsWith('guides/'))} 
@@ -45,6 +48,3 @@ import RedlineNewsPreview from '@/components/redline-news-preview.astro';
   title="Reference Documentation" 
   collection={await getCollection('docs', ({ id }) => id.startsWith('reference/'))} 
 />
-
-<WolfNewsPreview />
-<RedlineNewsPreview />
