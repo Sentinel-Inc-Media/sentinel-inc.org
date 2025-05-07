@@ -30,10 +30,10 @@ const formattedContent = entry.body ? marked.parse(entry.body) : '';
   <div class="redline-container">
     <div class="redline-header">
       <div class="redline-logo">
-        <h1>RED LINE</h1>
-        <p class="tagline">Intelligence Beyond the Boundary</p>
+        <h1>REDLINE</h1>
+        <p class="tagline">Intelligence Beyond Boundaries</p>
       </div>
-      <div class="classified-banner">CLASSIFIED INTEL</div>
+      <div class="classified-banner">BREAKING NEWS</div>
     </div>
     
     <div class="red-line-indicator">
@@ -51,7 +51,7 @@ const formattedContent = entry.body ? marked.parse(entry.body) : '';
           month: 'long',
           day: 'numeric'
         })}</span>
-        <span class="security-level">SECURITY LEVEL: ALPHA</span>
+        <span class="security-level">Redline, News without borders.</span>
       </div>
       
       <div class="article-content" set:html={formattedContent} />
